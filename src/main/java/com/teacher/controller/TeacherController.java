@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
 import com.teacher.entity.Teacher;
 import com.teacher.service.TeacherService;
 
@@ -29,7 +28,7 @@ public class TeacherController {
 		Teacher teacher = this.teacherService.getTeacher(cId);
 		//http://localhost:9002/student/teacher/1315
 		
-		List students = this.restTemplate.getForObject("http://localhost:9002/student/teacher/" + cId, List.class);
+		List students = this.restTemplate.getForObject("http://STUDENT-SERVICE/student/teacher/" + cId, List.class);
 		
 		teacher.setStudents(students);
 		
